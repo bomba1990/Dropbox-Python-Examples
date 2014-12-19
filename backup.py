@@ -28,7 +28,7 @@ if d.is_logged() == False:
 
 #ejecutamos el comando y comprimimos el resultado, para que sea más ligero el archivo
 os.popen("mysqldump -u %s --password='%s' -h %s -e --opt -c %s | gzip -c > '%s'" % (username, password, hostname, database, filename_gz))
-
+#os.popen("PGPASSWORD=\"%s\" pg_dump -U %s  -h %s  -d %s -n public | gzip -c > '%s'" % ( password, username, hostname, database, filename_gz))
 #montamos el archivo resultante en el dropbox
 print d.put(filename_gz,'/database/'+filename_gz)
 
